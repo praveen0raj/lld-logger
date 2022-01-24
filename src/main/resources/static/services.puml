@@ -9,5 +9,8 @@ interface LoggerService{
     void debug(String message);
 }
 
+class Logger{
+
+
 
 @enduml
