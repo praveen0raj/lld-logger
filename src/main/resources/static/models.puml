@@ -1,0 +1,39 @@
+@startuml
+enum LogLevel{
+    FATAL, ERROR, WARN, INFO,DEBUG;
+}
+
+class LogConfiguration{
+    LogLevel level;
+    SinkType sinkType;
+    String timeFormat;
+}
+
+abstract class Sink{
+    SinkType sinkType;
+    abstract void sendMessage(String message)
+}
+
+class Database extends Sink{
+    String host;
+    String username;
+    String password;
+}
+
+class File extends Sink{
+    String filePath;
+}
+
+class Console extends Sink{
+
+}
+
+enum SinkType{
+    File,
+    Database,
+    Console
+    TextFile;
+
+}
+
+@enduml
